@@ -69,30 +69,32 @@ const getDadosContato = function (aruan) {
 
 //console.log(getDadosContato('11966578996'))
 
-const getConvContato = function (aruan) {
+const getConvContato = function (numero) {
+    let status = false
+    let user = String(numero)
+    let conversasContatos = {}
+    let whatsUsers = []
 
-    let edukof = []
-
-    projetoWhat.contatos["whats-users"].forEach(function(portuga){
-        if (portuga.number == aruan){
-            portuga.contacts.forEach(function(maycon){
-                maycon.messages.forEach(function(afrein){
-                
-                    edukof.push ({
-
-                        name: maycon.name,
-                        description: maycon.description,
-                        image: maycon.image,
-                        messages: afrein
-
-                    })
+    projetoWhat.contatos["whats-users"].forEach(function(item){
+        item.contacts.forEach(function(item2){
+            if(String(item.number) == user){
+                whatsUsers.push({
+                    name: item2.name,
+                    profile: item2["image"],
+                    description: item2.description,
+                    convensas: item2.messages
                 })
-            })
-            
-        }
+                status = true
+            }
+        })
     })
+    conversasContatos.conversas = whatsUsers
 
-    return edukof
+    if(status == true){
+        return conversasContatos
+    }else{
+        return status
+    }
 }
 
 //console.log(getConvContato('11966578996'))

@@ -1,7 +1,7 @@
 /****************************************************************
  * objetivo: API para retornar dados do zapzap
  * data: 04/02/2024
- * autor: pedro souza
+ * autor: gustavo
  * versao: 1.0
  ****************************************************************/
 const express       = require('express')
@@ -82,8 +82,7 @@ app.get('/v1/whatsapp/contatos6/:number', cors(), async function (request, respo
 })
 
 
-
-app.listen(8888, function(){
+app.listen(9090, function(){
     console.log('API funcionando e aguardando requisições...')
 })
 
